@@ -11,7 +11,7 @@
 > Al mismo tiempo sirve como punto de entrada para
 > acceder al resto de los repositorios de forma sencilla.
 
-#### Integrantes
+#### Equipo: Grupo 2
 
 * Leandro Di Lorenzo » [@leandrojdl](https://github.com/leandrojdl)
 * Julián Fischetti » [@fischettij](https://github.com/fischettij)
