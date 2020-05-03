@@ -16,9 +16,10 @@
 * Leandro Di Lorenzo » [@leandrojdl](https://github.com/leandrojdl)
 * Julián Fischetti » [@fischettij](https://github.com/fischettij)
 
-#### Enunciado
+#### Información
 
-* [Arq1 - 2020s1 - Insumos Médicos](https://docs.google.com/document/d/1AyV7urbQM0ywcCVH7bCqCrsFQ7miNpRu_-kGEK_vt7A/edit#)
+* [Enunciado](https://docs.google.com/document/d/1AyV7urbQM0ywcCVH7bCqCrsFQ7miNpRu_-kGEK_vt7A/edit#)
+* [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/1)
 
 #### Repositorios
 
