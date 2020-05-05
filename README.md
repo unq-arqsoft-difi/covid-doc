@@ -74,7 +74,7 @@ mediante la API que estos exponen.
 
 | Method | Path     | JWT | Response | Descripción                                |
 |--------|----------|-----|----------|--------------------------------------------|
-| `GET`  | `/users` | :white_check_mark:  | `200`    | [Listar usuarios][api-listar-usuarios]     |
+| `GET`  | `/users` | :heavy_check_mark:  | `200`    | [Listar usuarios][api-listar-usuarios]     |
 | `POST` | `/users` | :x:  | `201`    | [Registrar usuario][api-registrar-usuario] |
 | `POST` | `/login` | :x:  | `200`    | [Login de usuario][api-login-de-usuario]   |
 

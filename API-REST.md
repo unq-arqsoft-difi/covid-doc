@@ -153,14 +153,3 @@ mediante un token otorgado al momento de autenticarse.
   ]
 }
 ```
-
-**Request:**
-
-```json
-GET /auth-place
-
-```
-
-**Response:**
-
-`200 OK` (O lo que retorne el endpoint particular)
