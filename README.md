@@ -20,6 +20,7 @@
 
 * [Enunciado](https://docs.google.com/document/d/1AyV7urbQM0ywcCVH7bCqCrsFQ7miNpRu_-kGEK_vt7A/edit#)
 * [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/1)
+* [Documento de Arquitecturas](Arquitecturas.md)
 
 #### Repositorios
 
@@ -44,7 +45,11 @@ intercambiados luego de la etapa de análisis y comparación.
 
 ## Desarrollo por etapas
 
-### Etapa 1
+### Etapa 1.1: Registro de Usuario y Login
+
+> Objetivo: desarrollar una funcionalidad mínima que permita realizar un MVP
+> sobre las diferentes arquitecturas para poder compararlas.
+> Funcionalidad a desarrollar: Carga de usuario.
 
 La idea de esta etapa es poder desarrollar el MVP del producto
 mediante dos Arquitecturas diferentes de manera de poder compararlas
@@ -53,18 +58,12 @@ para completar el desarrollo.
 
 En nuestro caso las Arquitecturas planteadas son:
 
-* [Backend API Node](https://github.com/unq-arqsoft-difi/covid-back-node) +
-  [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
-* [Backend API Kotlin](https://github.com/unq-arqsoft-difi/covid-back-kotlin) +
-  [Frontend Vue](https://github.com/unq-arqsoft-difi/covid-front-vue)
+* [Backend API Node][repo-node] + [Frontend React][repo-react]
+* [Backend API Kotlin][repo-kotlin] + [Frontend Vue][repo-vue]
 
-#### Etapa 1.1: Registro de Usuario
+Para ver más en detalle el análisis de las arquitecturas se puede consultar el [Documento de Arquitecturas](Arquitecturas.md).
 
-> Objetivo: desarrollar una funcionalidad mínima que permita realizar un MVP
-> sobre las diferentes arquitecturas para poder compararlas.
-> Funcionalidad a desarrollar: Carga de usuario.
-
-##### Interfaz API
+#### Interfaz API
 
 Para lograr que las duplas de Arquitecturas sean intercambiables
 planteamos una interfaz de API REST común en ambos _backend_.
@@ -73,107 +72,18 @@ completa, dejando la posibilidad de elegir el _backend_ de un "equipo"
 y el _frontend_ del otro, ya que los _frontend_ se comunican con el _backend_
 mediante la API que estos exponen.
 
-###### Registro de usuario
+| Method | Path     | JWT | Response | Descripción                                |
+|--------|----------|-----|----------|--------------------------------------------|
+| `GET`  | `/users` | :ballot_box_with_check:  | `200`    | [Listar usuarios][api-listar-usuarios]     |
+| `POST` | `/users` | :x:  | `201`    | [Registrar usuario][api-registrar-usuario] |
+| `POST` | `/login` | :x:  | `200`    | [Login de usuario][api-login-de-usuario]   |
 
-**Request:**
+Para información detalla consultar la [Documentación de API REST](API-REST.md).
 
-```json
-POST /registry
-Accept: application/json
-body: {
-  "firstName": "Jon",
-  "lastName": "Snow",
-  "email": "jon.snow@winterfell.com",
-  "phone": "+54 11 4444-5555",
-  "entity": "Hospital Alemán",
-  "job": "Enfermero",
-  "place": "CABA",
-  "pass": "1234"
-}
-```
-
-**Responses:**
-
-`201 Created`
-
-Body:
-
-```json
-{
-  "created": true
-}
-```
-
-`400 Bad Request`
-
-Si hay datos erróneos o email ya registrado.
-
-Body:
-
-```json
-{
-    "created": false,
-    "errors": [
-        "E-Mail address already exists",
-        "Job is required"
-    ]
-}
-```
-
-###### Login
-
-La autenticación se realizará mediante mail y contraseña y el manejo de sessión
-mediante un token otorgado al momento de autenticarse.
-
-El token tendrá una validez de 2 días. Pasado ese tiempo es necesario volver a pedirlo.
-**TODO: Justificar**.
-
-**Request:**
-
-```json
-POST /login
-body: {
-  "email": "jon.snow@winterfell.com",
-  "pass": "1234"
-}
-```
-
-**Response:**
-
-`200 OK`
-
-Body:
-
-```json
-{
-  "token": "123456789"
-}
-```
-
-`400 Bad request`
-
-Body:
-
-```json
-{
-  "token": false,
-  "errors": [
-    "Invalid email or password"
-  ]
-}
-```
-
-##### Secure Endpoint
-
-**Request:**
-
-```json
-GET /auth-place
-Headers: "Authorization: Bearer 123456789"
-```
-
-**Response:**
-
-`200 OK` (O lo que retorne el endpoint particular)
-
-`401 Unauthorized`
+[repo-node]:   <https://github.com/unq-arqsoft-difi/covid-back-node>
+[repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
+[repo-react]:  <https://github.com/unq-arqsoft-difi/covid-front-react>
+[repo-vue]:    <https://github.com/unq-arqsoft-difi/covid-front-vue>
+[api-listar-usuarios]:   API-REST.md#listar-usuarios
+[api-registrar-usuario]: API-REST.md#registrar-usuario
+[api-login-de-usuario]:  API-REST.md#login-de-usuario
