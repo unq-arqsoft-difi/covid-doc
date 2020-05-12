@@ -22,8 +22,8 @@ de contar con ambos _backend_ que exponen API REST con interfaz común.
 ### Kotlin
 
 > Parte de esta descripción tiene como base el artículo
-> [Why you should totally switch to Kotlin] pero también se ve plasmada
-> la experiencia personal con esta tecnología.
+> [Why you should totally switch to Kotlin] pero también se ven plasmadas
+> las experiencias personales del equipo con esta tecnología.
 
 Trabajar con Kotlin requiere trabajar en un ambiente de Java. Es un lenguaje
 estáticamente tipado que compila a _bytecode_ de la [JVM] de Java, con lo cual
@@ -72,6 +72,10 @@ _TODO_
 
 ### Backend
 
+> Parte de la justificación en la decisión surge del artículo
+> [Difference Between Node.js and Java Performance]
+> pero fundamentalmente se debe a experiencias personales del equipo.
+
 Tanto Node/Javascript como Kotlin/JVM son arquitecturas sólidas, muy utilizadas,
 con grandes comunidades y buena performance. A nivel técnico es muy difícil
 lograr sobreponer a una por sobre la otra de una forma clara.
@@ -115,3 +119,4 @@ _TODO_
 [JetBrains]: <https://www.jetbrains.com/>
 [exposed-version]: <https://bintray.com/kotlin/exposed/exposed-core/0.24.1>
 [Why you should totally switch to Kotlin]: <https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5>
+[Difference Between Node.js and Java Performance]: <https://www.educba.com/node-js-vs-java-performance/>
