@@ -45,6 +45,12 @@ intercambiados luego de la etapa de análisis y comparación.
 
 ## Desarrollo por etapas
 
+### Fechas importantes
+
+* `25/05` Etapa 1.1 » Elección de Arquitectura
+* `20/06` Etapa 1.2 » Funcionalidad completa del lado del usuario (sin admin)
+* `20/07` Etapa 2.0 » Funcionalidad completa y deploy automático
+
 ### Etapa 1.1: Registro de Usuario y Login
 
 > Objetivo: desarrollar una funcionalidad mínima que permita realizar un MVP
