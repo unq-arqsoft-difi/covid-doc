@@ -57,8 +57,19 @@ Ambos frameworks cumplen las expectativas y simplifican el desarrollo. A [Expose
 aún le falta un poco de maduración ya que están en versiones jóvenes: [0.24.1][exposed-version].
 
 ### Node
+El ambiente de desarrollo de Node consta de un editor de texto y un gestor de paquetes de javascript (npm o yarn). Esto le da la flexibilidad al desarrollador de poder trabajar en el ambiente que se sienta mas cómodo.
+Es un lenguaje interpretado y debilmente tipado, esto nos permite poder ejecutar el código sin necesidad de compilarlo. Sin embergo el dolor de cabeza puede venir en el uso de funciones asincrónicas, que en etamas tempranas del aprendizaje de la tecnología, puede dar dolores de cabeza.
+NodeJs cuanta con frameworks bastante maduros y con una comunidad grande. A la hora de seleccionar los frameworks a utilizar, pudimos contar con bastente información y ejemplos de uso de cada framework
 
-_TODO_
+Para el desarrollo de este MBP se seleccionaron los siguientes frameworks principales:
+* [Sequelize]: Persistencia. Es un ORM con soporte para persistir en varios tipos de bases de datos. La ventaja de este framework es que podemos alternar el tipo de perisistencia dependiendo del ambiente en el que nos encontremos. Por ejemplo en test utilizamos SQLite en memoria y en desarrollo SQLite en un archivo.
+* [Express]: Servidor web. Es sencillo de utilizar y nos brinda bastante flexibilidad a la hora de procesar un request.
+* [jsonwebtoken]: Libreria que nos permite generar y validar JWT.
+
+
+Desventajas detectadas:
+Node.js es Single-threaded. Para suplir este problema, en caso de necesitarlo, deberíamos levantar varias instancias del servidor y utilizar un balancer.
+No es eficiente en el cálculo de datos pesados.
 
 ### React
 
@@ -120,3 +131,6 @@ _TODO_
 [exposed-version]: <https://bintray.com/kotlin/exposed/exposed-core/0.24.1>
 [Why you should totally switch to Kotlin]: <https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5>
 [Difference Between Node.js and Java Performance]: <https://www.educba.com/node-js-vs-java-performance/>
+[Sequelize]: <https://sequelize.org/>
+[Express]: <https://expressjs.com/>
+[jsonwebtoken]: <https://www.npmjs.com/package/jsonwebtoken>
