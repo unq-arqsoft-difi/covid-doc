@@ -74,8 +74,20 @@ Node.js es _Single-threaded_. Para suplir este problema, en caso de necesitarlo,
 No es eficiente en el cálculo de datos pesados.
 
 ### React
+**Ventajas detectadas:**
 
-_TODO_
+Sin entrar en detalle en el aspecto técnico, uno de los puntos fuertes de React es la gran comunidad que tiene. Analizando un poco las tendencias obsevamos que:
+- Stack overflow: observamos que un poco mas del 4% de las consultas son sobre react, mientras que el 1.5% corresponden a preguntas sobre vue (sumando vue y vue2). https://insights.stackoverflow.com/trends?tags=vue.js%2Cvuejs2%2Creactjs%2Cangular. Pero si vemos otro dato estan más parejos https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks
+- Google Trends: En esta métrica de búsqueda vemos que desde el 2017 en adelante React supero a Vue. https://trends.google.com/trends/explore?cat=31&date=2015-01-01%202020-05-24&q=Vue%20%2B%20Vue.js%20%2B%20vue,React,Angular
+- NPM trends: El resultado es similar al de Stack overflow. https://www.npmtrends.com/react-vs-vue-vs-@angular/core?ref=hackernoon.com 
+
+El soporte es dado por Facebook y la comunidad.
+
+Aspecto técnico: Se decidió utilizar JSX en lugar de JS y react hooks en lugar de utilizar componentes "clasicos". Utilizando estas técnicas, luego de entender un poco mas en detalle como funciona y trabaja React, fue sencillo crear componentes.
+Para la parte estética optó por utilizar el framework material-ui. Tras compararlo con React Bootrap, no encontramos ningun argumento técnico en la deición, a si que fuimos por un tema de gustos.
+
+**Ventajas detectadas:**
+Al haber tanto material de react dando vueltas, fue complicado encontrar cual es la forma correcta de trabajar con este framework.
 
 ### Vue
 
