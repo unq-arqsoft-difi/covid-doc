@@ -25,9 +25,9 @@
 #### Repositorios
 
 * [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
-* [Backend Kotlin](https://github.com/unq-arqsoft-difi/covid-back-kotlin)
 * [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
-* [Frontend Vue](https://github.com/unq-arqsoft-difi/covid-front-vue)
+* [Backend Kotlin](https://github.com/unq-arqsoft-difi/covid-back-kotlin) _DEPRECADO_
+* [Frontend Vue](https://github.com/unq-arqsoft-difi/covid-front-vue) _DEPRECADO_
 
 ## Idea General
 
@@ -42,6 +42,26 @@ que se comunica con el _backend_ mediante la API que este expone.
 Se plantean -inicialmente- los equipos **Kotlin + Vue** y **Node + React**,
 aunque por la naturaleza de la estructura elegida los equipos pueden ser
 intercambiados luego de la etapa de análisis y comparación.
+
+## Metodología de Trabajo
+
+En la primer etapa, al estar trabajando sobre dos tipos de _stacks tecnológicos_
+para poder tomar una decisión en cuanto a qué tecnologías adoptar, lo que hicimos
+fue separarnos las tareas y que cada uno trabaje en un stack distintos.
+Julián estuvo trabajando sobre Node y React y Leandro sobre Kotlin y Vue.
+
+Pero para que todo el equipo esté al tanto de los desarrollos de ambos MVP,
+adoptamos una metodología de trabajo en _branchs_ y _code reviews_ cruzados
+en los _pull requests_. O sea, Si Julián trabaja en una funcionalidad en Node,
+no lo hace sobre _master_ sino que abre un nuevo _branch_. Cuando termina
+arma un _pull request_ pero no lo _mergea_. El encargado de revisar la funcionalidad
+y aceptar el _pull request_ es en este caso Leandro. Lo mismo sucede al revés.
+Si Leandro arma una funcionalidad en Vue, el encargado de llevar eso a _master_
+es Julián previa revisión del código.
+
+Esto nos permitió que ambos podamos trabajar en cada uno de los _stacks_ pero
+a la vez estando al tanto todo el tiempo del desarrollo del otro _stack_.
+Por supuesto que esto fue complementado con una comunicación continua.
 
 ## Desarrollo por etapas
 
