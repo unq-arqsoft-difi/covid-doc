@@ -20,7 +20,7 @@
 
 * [Enunciado](https://docs.google.com/document/d/1AyV7urbQM0ywcCVH7bCqCrsFQ7miNpRu_-kGEK_vt7A/edit#)
 * [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/1)
-* [Documento de Arquitecturas](Arquitecturas.md)
+* [Análisis de Arquitecturas](Arquitecturas.md)
 
 #### Repositorios
 

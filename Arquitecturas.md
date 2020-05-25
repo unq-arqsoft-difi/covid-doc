@@ -75,22 +75,74 @@ No es eficiente en el cálculo de datos pesados.
 
 ### React
 
-**Ventajas detectadas:**
+> Parte de esta descripción tiene utiliza como fundamento
+> el artículo [7-reasons-why-you-should-use-react],
+> pero también se ven reflejadas las experiencias
+> personales del equipo desarrollando en esta tecnología.
 
-Más allá del aspecto técnico, uno de los puntos fuertes de React es la gran comunidad que tiene. Analizando un poco las tendencias observamos que:
+React es un _framework_/_library_ que permite crear interfaces
+web utilizando el concepto de Single Page Application (SPA).
+React es desarrollado y mantenido por Facebook, y si bien no fue
+el primero en plasmar el concepto de SPA, sí se destaca por
+ser pionero en la posibilidad de acoplamiento a desarrollos
+existentes. [Angular] ya venía trabajando con este concepto pero
+funcionaba completamente como framework, con lo cual no era sencillo
+(y muchas veces imposible) integrarlo en proyectos pre-existentes.
 
-* **Stack overflow:** Poco más del 4% de las consultas son sobre react, mientras que el 1.5% corresponden a preguntas sobre Vue. [stack-overflow-react-vs-vue]. Pero si vemos otro dato están más parejos [stack-overflow-react-vs-vue-2].
-* **Google Trends:** En esta métrica de búsqueda vemos que desde el 2017 en adelante React superó a Vue. [google-trends-react-vs-vue].
-* **NPM trends:** El resultado es similar al de Stack overflow. [npm-trends].
+Como React funciona como _library_, es posible integrarlo en un proyecto
+existente y simplemente comenzar a crear partes nuevas con React pero
+manteniendo la funcionalidad restante tal como estaba programada.
+Esto le permitió a React hacerse paso en la comunidad.
 
-Tiene mucho soporte dado por Facebook y la comunidad.
+Para destacar a nivel técnico, React tiene una curva de aprendizaje
+corta, lo que permite que en el corto plazo cualquier desarrollador
+logre tener funcionando una aplicación mínima y con los suficientes
+conocimientos para poder seguir indagando. Pero quizás los aspectos
+más destacables de React sean Virtual DOM, JSX y los recientes Hooks.
 
-**Aspecto técnico:** Se decidió utilizar JSX en lugar de JS y _React Hooks_ en lugar de utilizar componentes "clásicos". Utilizando estas técnicas, luego de entender un poco más en detalle como funciona y trabaja React, fue sencillo crear componentes.
-Para la parte estética se optó por utilizar el framework _material-ui_. Tras compararlo con React Boostrap no encontramos ningún argumento técnico en la decisión, a si que fuimos por un tema de gustos.
+#### Virtual DOM
 
-**Ventajas detectadas:**
+Al representar aplicaciones web mediante HTML se genera una estructura
+de árbol llamada [DOM] (Documento Object Model). Al generar aplicaciones
+dinámicas (como SPA), es necesario manipular esos elementos. Para ello
+es necesario manipular el [DOM], generando operaciones a nivel
+de estructura del árbol.
 
-Al haber tanto material de react dando vueltas, fue complicado encontrar cual es la forma correcta de trabajar con este framework.
+Estas operaciones son muy costosas para el browser. Lo que hacen los
+frameworks que utilizando VDOM es justamente mantener un DOM Virtual
+en memoria y eventualmente sincronizar contra el DOM de manera optimizada.
+Esto permite mejorar notablemente la _performance_ de las aplicaciones
+dinámicas.
+
+#### JSX
+
+JSX es quizás la característica más representativa de React.
+Para poder generar SPAs React manipula el DOM a través del VDOM.
+Esta manipulación la realiza utilizando métodos que no son muy diferentes
+a los clásicos métodos de javascript para manipular el DOM.
+
+La gran diferencia es que React construyó un DSL que abstrae al desarrollador
+de esos métodos y permite escribir código "a la html" pero que en realidad
+es código javascript.
+
+> En esta página se puede visualizar lo descripto: [What is JSX?][w3school-jsx]
+
+#### Hooks
+
+En el último año React incorporó un nuevo concepto: _Hooks_.
+
+Hasta entonces cada componente interactivo en React requería cumplir
+con un [ciclo de vida bien definido][react-state-lifecycle]. Si bien
+permite muchas facilidades, con el tiempo los componentes comenzaban
+a incrementar su complejidad inclusive aquellos más sencillos. A partir
+de ello React incorporó el concepto de [Hooks][react-hooks] que permite
+poder clear componentes más concisos sin perder funcionalidad ni dinamismo.
+
+#### Estética
+
+A nivel estética de UI se optó por el uso del framework [Material-UI]
+para lograr un diseño acorde a los últimos estándares sin necesidad
+de gastar tiempo en mejorar los aspectos estéticos.
 
 ### Vue
 
@@ -133,6 +185,11 @@ que en este contexto es un punto crucial.
 ### Frontend
 
 _TODO_
+* **Stack overflow:** Poco más del 4% de las consultas son sobre react, mientras que el 1.5% corresponden a preguntas sobre Vue. [stack-overflow-react-vs-vue]. Pero si vemos otro dato están más parejos [stack-overflow-react-vs-vue-2].
+* **Google Trends:** En esta métrica de búsqueda vemos que desde el 2017 en adelante React superó a Vue. [google-trends-react-vs-vue].
+* **NPM trends:** El resultado es similar al de Stack overflow. [npm-trends].
+
+---
 
 [repo-node]: <https://github.com/unq-arqsoft-difi/covid-back-node>
 [repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
@@ -145,6 +202,7 @@ _TODO_
 [Exposed]: <https://github.com/JetBrains/Exposed>
 [Sequelized]: <https://github.com/sequelize/sequelize/>
 [JetBrains]: <https://www.jetbrains.com/>
+[Angular]: <https://angular.io/>
 [exposed-version]: <https://bintray.com/kotlin/exposed/exposed-core/0.24.1>
 [Why you should totally switch to Kotlin]: <https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5>
 [Difference Between Node.js and Java Performance]: <https://www.educba.com/node-js-vs-java-performance/>
@@ -155,3 +213,9 @@ _TODO_
 [stack-overflow-react-vs-vue-2]: <https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks>
 [google-trends-react-vs-vue]: <https://trends.google.com/trends/explore?cat=31&date=2015-01-01%202020-05-24&q=Vue%20%2B%20Vue.js%20%2B%20vue,React,Angular>
 [npm-trends]: <https://www.npmtrends.com/react-vs-vue-vs-@angular/core?ref=hackernoon.com>
+[7-reasons-why-you-should-use-react]: <https://stories.jotform.com/7-reasons-why-you-should-use-react-ad420c634247>
+[w3school-jsx]: <https://www.w3schools.com/react/react_jsx.asp>
+[react-state-lifecycle]: <https://reactjs.org/docs/state-and-lifecycle.html>
+[react-hooks]: <https://reactjs.org/docs/hooks-intro.html>
+[Material-UI]: <https://material-ui.com/>
+[DOM]: <https://es.wikipedia.org/wiki/Document_Object_Model>
