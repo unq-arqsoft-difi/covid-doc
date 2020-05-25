@@ -1,19 +1,21 @@
 # Documento de Arquitecturas
 
-Este documento comenzará detallando las características (pros y contras) de cada
-stack de tecnologías elegidas para desarrollar el MVP de la aplicación,
-para luego poder optar por aquellas que consideremos que mejor se ajustan
+Este documento comienza detallando las características de cada
+stack tecnológico elegido para desarrollar el [MVP] de la aplicación,
+para luego poder optar por aquel que consideramos que mejor se ajusta
 a las necesidades del producto y del desarrollo.
 
-En nuestro caso se plantean dos _stacks_ de Backend + API REST ([Node][repo-node] y [Kotlin][repo-kotlin])
+En nuestro caso se plantean dos _stacks_ de Backend + API REST
+([Node][repo-node] y [Kotlin][repo-kotlin])
 y dos de Frontend ([React][repo-react] y [Vue][repo-vue].
-Inicialmente se trabajará por equipos:
+
+Inicialmente se trabajó por equipos:
 
 * [Back Node][repo-node] + [Front React][repo-react]
 * [Back Kotlin][repo-kotlin] + [Front Vue][repo-vue]
 
 pero luego de la etapa de análisis esas combinaciones pueden llegar a cruzarse.
-O sea, los análisis de tecnologías se harán, por un lado entre _Node_ y _Kotlin_
+O sea, los análisis de tecnologías se hacen por un lado entre _Node_ y _Kotlin_
 y por el otro entre _React_ y _Vue_. Esto es posible por la característica adoptada
 de contar con ambos _backend_ que exponen API REST con interfaz común.
 
@@ -58,20 +60,28 @@ aún le falta un poco de maduración ya que están en versiones jóvenes: [0.24.
 
 ### Node
 
-El ambiente de desarrollo de Node consta de un editor de texto y un gestor de paquetes de javascript (npm o yarn). Esto le da la flexibilidad al desarrollador de poder trabajar en el ambiente que se sienta mas cómodo.
-Es un lenguaje interpretado y débilmente tipado, esto nos permite poder ejecutar el código sin necesidad de compilarlo. Sin embargo el dolor de cabeza puede venir en el uso de funciones asincrónicas, que en etapas tempranas del aprendizaje de la tecnología, puede dar dolores de cabeza.
-NodeJs cuenta con frameworks bastante maduros y con una comunidad grande. A la hora de seleccionar los frameworks a utilizar, pudimos contar con bastante información y ejemplos de uso de cada framework.
+El ambiente de desarrollo de Node consta de un editor de texto y un gestor de paquetes
+de Javascript (npm o yarn). Esto le da la flexibilidad al desarrollador de poder
+trabajar en el ambiente que se sienta mas cómodo.
+Es un lenguaje interpretado y débilmente tipado, esto nos permite poder ejecutar
+código sin necesidad de compilarlo. Sin embargo el dolor de cabeza puede venir
+en el uso de funciones asincrónicas, que en etapas tempranas del aprendizaje
+de la tecnología, puede generar complicaciones difíciles de detectar.
+[Node] cuenta con frameworks bastante maduros y con una comunidad grande.
+A la hora de seleccionar los frameworks a utilizar, pudimos contar con bastante información
+y ejemplos de uso de cada framework.
 
-Para el desarrollo de este MVP se seleccionaron los siguientes frameworks principales:
+Para el desarrollo de este [MVP] se seleccionaron los siguientes frameworks principales:
 
 * [Sequelize]: Persistencia. Es un ORM con soporte para persistir en varios tipos de bases de datos. La ventaja de este framework es que podemos alternar el tipo de persistencia dependiendo del ambiente en el que nos encontremos. Por ejemplo en test utilizamos SQLite en memoria y en desarrollo SQLite en un archivo.
 * [Express]: Servidor web. Es sencillo de utilizar y nos brinda bastante flexibilidad a la hora de procesar un request.
 * [jsonwebtoken]: Librería que nos permite generar y validar JWT.
 
-**Desventajas detectadas:**
+#### Desventajas detectadas
 
-Node.js es _Single-threaded_. Para suplir este problema, en caso de necesitarlo, deberíamos levantar varias instancias del servidor y utilizar un balancer.
-No es eficiente en el cálculo de datos pesados.
+[Node] es _Single-threaded_. Para suplir este problema, en caso de necesitarlo,
+deberíamos levantar varias instancias del servidor y utilizar un _load-balancer_.
+Tampoco es eficiente en el cálculo de datos pesados.
 
 ### React
 
@@ -109,7 +119,7 @@ es necesario manipular el [DOM], generando operaciones a nivel
 de estructura del árbol.
 
 Estas operaciones son muy costosas para el browser. Lo que hacen los
-frameworks que utilizando VDOM es justamente mantener un DOM Virtual
+frameworks que utilizando Virtual DOM es justamente mantener un DOM Virtual
 en memoria y eventualmente sincronizar contra el DOM de manera optimizada.
 Esto permite mejorar notablemente la _performance_ de las aplicaciones
 dinámicas.
@@ -198,7 +208,7 @@ Otra característica interesante es el hecho de poder mantener una separación
 (a nivel lógica del componente) entre métodos dinámicos y valores "fijos".
 Hay cierta información que necesita re-calcularse cada vez pero otras no.
 Para ello [Vue] permite separar en `methods` y `data`, pudiendo optimizar
-la reactividad de los componentes y generar mejor performance. A la vez
+la _reactividad_ de los componentes y generar mejor performance. A la vez
 que permite una mejor organización para el desarrollador
 
 #### Estética
@@ -276,37 +286,44 @@ Si bien ambos conocíamos ambas tecnologías, nos sentimos un poco más
 cómodos trabajando con [React]. Y al igual que en la elección del _backend_,
 priorizamos este hecho por el contexto y la urgencia de la aplicación.
 
-[repo-node]: <https://github.com/unq-arqsoft-difi/covid-back-node>
-[repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
-[repo-react]: <https://github.com/unq-arqsoft-difi/covid-front-react>
-[repo-vue]: <https://github.com/unq-arqsoft-difi/covid-front-vue>
-[JVM]: <https://en.wikipedia.org/wiki/Java_virtual_machine>
-[Spring]: <https://spring.io/>
+## Stack Elegidos
+
+* [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
+* [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
+
+[7-reasons-why-you-should-use-react]: <https://stories.jotform.com/7-reasons-why-you-should-use-react-ad420c634247>
+[Angular]: <https://angular.io/>
+[data-binding]: <https://en.wikipedia.org/wiki/Language_binding>
+[Difference Between Node.js and Java Performance]: <https://www.educba.com/node-js-vs-java-performance/>
+[DOM]: <https://es.wikipedia.org/wiki/Document_Object_Model>
+[exposed-version]: <https://bintray.com/kotlin/exposed/exposed-core/0.24.1>
+[Exposed]: <https://github.com/JetBrains/Exposed>
+[Express]: <https://expressjs.com/>
+[google-trends-react-vs-vue]: <https://trends.google.com/trends/explore?cat=31&date=2015-01-01%202020-05-24&q=Vue%20%2B%20Vue.js%20%2B%20vue,React,Angular>
 [Hibernate]: <https://hibernate.org/>
 [Javalin]: <https://javalin.io/>
-[Exposed]: <https://github.com/JetBrains/Exposed>
-[Sequelized]: <https://github.com/sequelize/sequelize/>
 [JetBrains]: <https://www.jetbrains.com/>
-[Angular]: <https://angular.io/>
-[exposed-version]: <https://bintray.com/kotlin/exposed/exposed-core/0.24.1>
-[Why you should totally switch to Kotlin]: <https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5>
-[Difference Between Node.js and Java Performance]: <https://www.educba.com/node-js-vs-java-performance/>
-[Sequelize]: <https://sequelize.org/>
-[Express]: <https://expressjs.com/>
 [jsonwebtoken]: <https://www.npmjs.com/package/jsonwebtoken>
-[stack-overflow-react-vs-vue]: <https://insights.stackoverflow.com/trends?tags=vue.js%2Cvuejs2%2Creactjs%2Cangular>
-[google-trends-react-vs-vue]: <https://trends.google.com/trends/explore?cat=31&date=2015-01-01%202020-05-24&q=Vue%20%2B%20Vue.js%20%2B%20vue,React,Angular>
-[npm-trends]: <https://www.npmtrends.com/react-vs-vue-vs-@angular/core?ref=hackernoon.com>
-[7-reasons-why-you-should-use-react]: <https://stories.jotform.com/7-reasons-why-you-should-use-react-ad420c634247>
-[w3school-jsx]: <https://www.w3schools.com/react/react_jsx.asp>
-[react-state-lifecycle]: <https://reactjs.org/docs/state-and-lifecycle.html>
-[react-hooks]: <https://reactjs.org/docs/hooks-intro.html>
+[JVM]: <https://en.wikipedia.org/wiki/Java_virtual_machine>
+[material-design]: <https://material.io/design>
 [Material-UI]: <https://material-ui.com/>
-[DOM]: <https://es.wikipedia.org/wiki/Document_Object_Model>
+[MVP]: <https://en.wikipedia.org/wiki/Minimum_viable_product>
+[Node]: <https://nodejs.org/en/>
+[npm-trends]: <https://www.npmtrends.com/react-vs-vue-vs-@angular/core?ref=hackernoon.com>
+[react-hooks]: <https://reactjs.org/docs/hooks-intro.html>
+[react-state-lifecycle]: <https://reactjs.org/docs/state-and-lifecycle.html>
 [reasons-why-vuejs-is-popular]: <https://www.monterail.com/blog/reasons-why-vuejs-is-popular>
+[repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
+[repo-node]: <https://github.com/unq-arqsoft-difi/covid-back-node>
+[repo-react]: <https://github.com/unq-arqsoft-difi/covid-front-react>
+[repo-vue]: <https://github.com/unq-arqsoft-difi/covid-front-vue>
+[Sequelize]: <https://sequelize.org/>
+[Sequelized]: <https://github.com/sequelize/sequelize/>
+[Spring]: <https://spring.io/>
+[stack-overflow-react-vs-vue]: <https://insights.stackoverflow.com/trends?tags=vue.js%2Cvuejs2%2Creactjs%2Cangular>
+[vue-vs-react-battle-javascript]: <https://deliciousbrains.com/vue-vs-react-battle-javascript>
 [Vue]: <https://vuejs.org>
-[data-binding]: <https://en.wikipedia.org/wiki/Language_binding>
 [vuejs-overview]: <https://www.tutorialspoint.com/vuejs/vuejs_overview.htm>
 [Vuetify]: <https://vuetifyjs.com/>
-[material-design]: <https://material.io/design>
-[vue-vs-react-battle-javascript]: <https://deliciousbrains.com/vue-vs-react-battle-javascript>
+[w3school-jsx]: <https://www.w3schools.com/react/react_jsx.asp>
+[Why you should totally switch to Kotlin]: <https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5>
