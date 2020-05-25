@@ -146,7 +146,68 @@ de gastar tiempo en mejorar los aspectos estéticos.
 
 ### Vue
 
-_TODO_
+> Parte del análisis surge de los artículos
+> [Reasons Why Vuejs Is Popular][reasons-why-vuejs-is-popular]
+> y [VueJS Overview][vuejs-overview]
+> pero también de la experiencia del equipo trabajando con
+> esta tecnología.
+
+[Vue], al igual que [React], logró re-adaptar el concepto
+iniciado por [Angular] para lograr mayor flexibilidad y adaptabilidad
+tanto en desarrollos nuevos como en aplicaciones pre-existentes.
+[Vue] fue desarrollado originalmente por Evan You, un ex-empleado de Google.
+
+[Vue] y [React] comparten muchísimas similitudes: Virtual DOM, baja
+curva de aprendizaje, componentes reactivos, buena comunidad.
+Para no volver con ciertas descripciones, vamos a enfocarnos
+en las características propias de [Vue] en comparación con [React].
+
+#### Templates vs JSX
+
+La principal diferencia al utilizar [Vue] con respecto a [React]
+es el manejo de componentes. En lugar de utilizar [JSX], [Vue]
+trabaja con templates HTML y mantiene una separación bien
+marcada entre el aspecto visual y la lógica del componente.
+esto permite, a diferencia de [React], lograr una mejor organización
+de cada componente y no mezclar lógica de UI con lógica de interacción.
+
+Este concepto no fue introducido por [Vue] sino que fue adaptado
+de lo que ya venía haciendo [Angular]. Consiste es escribir código
+HTML/XML que luego es pre-procesado para lograr el dinamismo necesario
+en las SPA.
+
+#### Data Binding
+
+Si bien el [data-binding] no es un concepto propio de [Vue], sí logra
+aprovecharlo de la mejor manera con mucha facilidad para el desarrollador.
+Alcanza con definir una propiedad en el componente y agregar el atributo
+`v-bind="prop"` en el template para enlazar la información y actualizarla
+automáticamente al ser modificada.
+
+#### Event Handling
+
+Esta característica por supuesto tampoco es propia de [Vue] pero
+nuevamente permite generar un uso muy simple de ella. Al ser necesario
+capturar un evento, y tener esta separación template-lógica, es posible
+definir la lógica del evento en javascript puro y en el template
+agregar un elemento con el atributo `v-on="method"`.
+
+#### Computed Properties
+
+Otra característica interesante es el hecho de poder mantener una separación
+(a nivel lógica del componente) entre métodos dinámicos y valores "fijos".
+Hay cierta información que necesita re-calcularse cada vez pero otras no.
+Para ello [Vue] permite separar en `methods` y `data`, pudiendo optimizar
+la reactividad de los componentes y generar mejor performance. A la vez
+que permite una mejor organización para el desarrollador
+
+#### Estética
+
+A nivel estética de UI, al igual que en [React], se optó por el uso
+de un framework. En este caso se optó por [Vuetify], también un framework
+basado en [Material Design][material-design] que permite lograr un diseño
+acorde a los últimos estándares sin necesidad
+de gastar tiempo en mejorar los aspectos estéticos.
 
 ## Elección y justificación
 
@@ -184,12 +245,36 @@ que en este contexto es un punto crucial.
 
 ### Frontend
 
-_TODO_
-* **Stack overflow:** Poco más del 4% de las consultas son sobre react, mientras que el 1.5% corresponden a preguntas sobre Vue. [stack-overflow-react-vs-vue]. Pero si vemos otro dato están más parejos [stack-overflow-react-vs-vue-2].
-* **Google Trends:** En esta métrica de búsqueda vemos que desde el 2017 en adelante React superó a Vue. [google-trends-react-vs-vue].
-* **NPM trends:** El resultado es similar al de Stack overflow. [npm-trends].
+> Si bien el artículo
+> [Vue vs React: Which is the Best JavaScript Framework in 2020?][vue-vs-react-battle-javascript]
+> describe una buena comparativa y lo utilizamos como base,
+> el grueso de la decisión fue de carácter personal dentro de los miembros del equipo.
 
----
+A modo de comparativa de comunidades dejamos análisis de búsquedas entre
+[Vue] y [React]. Aunque no fueron fundamentales a la hora de tomar una decisión,
+creemos que es interesante poder visualizar cómo se mueven las comunidades:
+
+* **[Stack Overflow Trends][stack-overflow-react-vs-vue]**
+  - Poco más del 4% de las consultas son sobre [React]
+  - Mientras que el 1.5% corresponden a preguntas sobre Vue
+* **[Google Trends][google-trends-react-vs-vue]**
+  - En esta métrica de búsqueda vemos que desde el 2017 en adelante React superó a Vue.
+* **[NPM trends][npm-trends]**
+  - El resultado es similar al de Stack overflow. .
+
+#### Decisión
+
+Tanto [Vue] como [React] son muy similares en casi todos los aspectos.
+No podemos asegurar con certeza que uno sobrepase a otro en cuestiones
+técnicas ni en ventajas de desarrollo. Con lo cual no podemos
+utilizar estas características para definir una elección.
+
+De manera que el haber optado por uno sobre la otra se debe meramente
+a gustos personales y comodidad del equipo trabajando con la tecnología.
+
+Si bien ambos conocíamos ambas tecnologías, nos sentimos un poco más
+cómodos trabajando con [React]. Y al igual que en la elección del _backend_,
+priorizamos este hecho por el contexto y la urgencia de la aplicación.
 
 [repo-node]: <https://github.com/unq-arqsoft-difi/covid-back-node>
 [repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
@@ -210,7 +295,6 @@ _TODO_
 [Express]: <https://expressjs.com/>
 [jsonwebtoken]: <https://www.npmjs.com/package/jsonwebtoken>
 [stack-overflow-react-vs-vue]: <https://insights.stackoverflow.com/trends?tags=vue.js%2Cvuejs2%2Creactjs%2Cangular>
-[stack-overflow-react-vs-vue-2]: <https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks>
 [google-trends-react-vs-vue]: <https://trends.google.com/trends/explore?cat=31&date=2015-01-01%202020-05-24&q=Vue%20%2B%20Vue.js%20%2B%20vue,React,Angular>
 [npm-trends]: <https://www.npmtrends.com/react-vs-vue-vs-@angular/core?ref=hackernoon.com>
 [7-reasons-why-you-should-use-react]: <https://stories.jotform.com/7-reasons-why-you-should-use-react-ad420c634247>
@@ -219,3 +303,10 @@ _TODO_
 [react-hooks]: <https://reactjs.org/docs/hooks-intro.html>
 [Material-UI]: <https://material-ui.com/>
 [DOM]: <https://es.wikipedia.org/wiki/Document_Object_Model>
+[reasons-why-vuejs-is-popular]: <https://www.monterail.com/blog/reasons-why-vuejs-is-popular>
+[Vue]: <https://vuejs.org>
+[data-binding]: <https://en.wikipedia.org/wiki/Language_binding>
+[vuejs-overview]: <https://www.tutorialspoint.com/vuejs/vuejs_overview.htm>
+[Vuetify]: <https://vuetifyjs.com/>
+[material-design]: <https://material.io/design>
+[vue-vs-react-battle-javascript]: <https://deliciousbrains.com/vue-vs-react-battle-javascript>
