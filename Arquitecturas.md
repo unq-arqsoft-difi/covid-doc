@@ -7,9 +7,9 @@ a las necesidades del producto y del desarrollo.
 
 En nuestro caso se plantean dos _stacks_ de Backend + API REST
 ([Node][repo-node] y [Kotlin][repo-kotlin])
-y dos de Frontend ([React][repo-react] y [Vue][repo-vue].
+y dos de Frontend ([React][repo-react] y [Vue][repo-vue]).
 
-Inicialmente se trabajó por equipos:
+Inicialmente se trabajó por "equipos":
 
 * [Back Node][repo-node] + [Front React][repo-react]
 * [Back Kotlin][repo-kotlin] + [Front Vue][repo-vue]
@@ -47,7 +47,7 @@ a nivel de sintaxis y estructura de código:
 Como contrapartida está el hecho de que muchas herramientas de Java (si bien
 son fácilmente integrables) son difíciles de utilizar en el ambiente Kotlin
 por estas diferencias de verbosidad de los lenguajes. Van saliendo nuevas herramientas
-que plantean un usos _kotlin-style_ pero aún no todas tienen la maduración necesaria.
+que plantean usos _kotlin-style_ pero aún no todas tienen la maduración necesaria.
 
 Enfocándonos solo en el back (porque es posible desarrollar frontend con Kotlin también),
 nosotros no quisimos tomar la elección de [Spring] + [Hibernate] (el clásico de Java)
@@ -55,7 +55,7 @@ para API y persistencia porque considerábamos que era frameworks demasiado gran
 para el scope de la aplicación.
 Fuimos por herramientas más nuevas y creadas para el estilo de kotlin: [Javalin] + [Exposed].
 Ambos frameworks cumplen las expectativas y simplifican el desarrollo. A [Exposed]
-(desarrollada también por [JetBrains], lo que establece un gran acoplamiento con Kotlin)
+(desarrollada también por [JetBrains], lo que establece una gran integración con Kotlin)
 aún le falta un poco de maduración ya que están en versiones jóvenes: [0.24.1][exposed-version].
 
 ### Node
@@ -119,7 +119,7 @@ es necesario manipular el [DOM], generando operaciones a nivel
 de estructura del árbol.
 
 Estas operaciones son muy costosas para el browser. Lo que hacen los
-frameworks que utilizando Virtual DOM es justamente mantener un DOM Virtual
+frameworks que utilizan Virtual DOM es justamente mantener un DOM Virtual
 en memoria y eventualmente sincronizar contra el DOM de manera optimizada.
 Esto permite mejorar notablemente la _performance_ de las aplicaciones
 dinámicas.
@@ -178,7 +178,7 @@ La principal diferencia al utilizar [Vue] con respecto a [React]
 es el manejo de componentes. En lugar de utilizar [JSX], [Vue]
 trabaja con templates HTML y mantiene una separación bien
 marcada entre el aspecto visual y la lógica del componente.
-esto permite, a diferencia de [React], lograr una mejor organización
+Esto permite, a diferencia de [React], lograr una mejor organización
 de cada componente y no mezclar lógica de UI con lógica de interacción.
 
 Este concepto no fue introducido por [Vue] sino que fue adaptado
@@ -266,11 +266,11 @@ creemos que es interesante poder visualizar cómo se mueven las comunidades:
 
 * **[Stack Overflow Trends][stack-overflow-react-vs-vue]**
   - Poco más del 4% de las consultas son sobre [React]
-  - Mientras que el 1.5% corresponden a preguntas sobre Vue
+  - Mientras que el 1.5% corresponden a preguntas sobre [Vue]
 * **[Google Trends][google-trends-react-vs-vue]**
   - En esta métrica de búsqueda vemos que desde el 2017 en adelante React superó a Vue.
 * **[NPM trends][npm-trends]**
-  - El resultado es similar al de Stack overflow. .
+  - El resultado es similar al de Stack overflow.
 
 #### Decisión
 
@@ -310,6 +310,7 @@ priorizamos este hecho por el contexto y la urgencia de la aplicación.
 [MVP]: <https://en.wikipedia.org/wiki/Minimum_viable_product>
 [Node]: <https://nodejs.org/en/>
 [npm-trends]: <https://www.npmtrends.com/react-vs-vue-vs-@angular/core?ref=hackernoon.com>
+[React]: <https://reactjs.org/>
 [react-hooks]: <https://reactjs.org/docs/hooks-intro.html>
 [react-state-lifecycle]: <https://reactjs.org/docs/state-and-lifecycle.html>
 [reasons-why-vuejs-is-popular]: <https://www.monterail.com/blog/reasons-why-vuejs-is-popular>
