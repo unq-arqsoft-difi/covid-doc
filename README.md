@@ -68,14 +68,18 @@ Por supuesto que esto fue complementado con una comunicación continua.
 ### Fechas importantes
 
 * `25/05` Etapa 1.1 » Elección de Arquitectura
-* `20/06` Etapa 1.2 » Funcionalidad completa del lado del usuario (sin admin)
+* `22/06` Etapa 1.2 » Funcionalidad completa del lado del usuario (sin admin)
 * `20/07` Etapa 2.0 » Funcionalidad completa y deploy automático
 
 ### Etapa 1.1: Registro de Usuario y Login
 
-> Objetivo: desarrollar una funcionalidad mínima que permita realizar un MVP
-> sobre las diferentes arquitecturas para poder compararlas.
-> Funcionalidad a desarrollar: Carga de usuario.
+> **Deadline:** 25/05
+
+**Objetivo:**
+
+Desarrollar una funcionalidad mínima que permita realizar un MVP
+sobre las diferentes arquitecturas para poder compararlas.
+Funcionalidad a desarrollar: Carga de usuario.
 
 La idea de esta etapa es poder desarrollar el MVP del producto
 mediante dos Arquitecturas diferentes de manera de poder compararlas
@@ -88,6 +92,17 @@ En nuestro caso las Arquitecturas planteadas son:
 * [Backend API Kotlin][repo-kotlin] + [Frontend Vue][repo-vue]
 
 Para ver más en detalle el análisis de las arquitecturas se puede consultar el [Documento de Arquitecturas](Arquitecturas.md).
+
+### Etapa 1.2: Carga de Solicitud
+
+> **Deadline:** 22/06
+
+**Features:**
+
+* Login
+* Carga de solicitud de insumos por parte del usuario
+* Visualización de solicitudes por parte del usuario (se debe poder ver el estado de cada solicitud)
+* Posibilidad de cancelar aquellas que no hayan sido confirmadas
 
 #### Interfaz API
 
