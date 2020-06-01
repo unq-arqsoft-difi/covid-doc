@@ -257,14 +257,21 @@ dado que no existe la necesidad de manejar concurrencia y administrar
 zonas de exclusión mutua, lo que suele ser problemático y difícil de rastrear
 en caso de errores.
 
-Si bien podría plantearse el hecho de que una solución concurrente fuese
-más eficiente, eso no es tan así dado que al tratarse de soluciones web,
-el mayor cuello de botella de da en las peticiones HTTP.
+Si bien podría pensarse que una solución concurrente es
+más eficiente (y puede serlo en el contexto adecuado),
+eso no es tan cierto en soluciones web donde mayor cuello de botella se da justamente
+en las peticiones HTTP sobre Internet.
 Este "delay" en las peticiones permite que una arquitectura _event-driven_
-con _nonblocking I/O_ no pierda performance, ya que el tiempo del
-_request/response_ permite a la aplicación procesar la información
+con _nonblocking I/O_ no pierda performance significativa en comparación con
+una arquitectura concurrente ya que el tiempo que se "pierde" entre
+_request_ y _response_ permite a la aplicación procesar la información
 con el tiempo suficiente como para lograr atender la petición siguiente
-sin que es "tiempo de espera" sea significativo.
+sin que es "tiempo de espera" sea crucial.
+
+También es importante notar que la aplicación funciona con una base de datos,
+lo cual implica consultas sucesivas al motor. Y sea tanto una aplicación
+concurrente como no, para las peticiones de escritura, el _lock_ de proceso
+se va a dar a nivel Base de Datos. No así para lectura, pero sí para escritura.
 
 Además también hay que tener en cuenta que esta aplicación no va a trabajar
 con cómputos complejos ni números tan grandes o tan chicos que requieran
