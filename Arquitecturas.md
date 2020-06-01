@@ -223,9 +223,10 @@ de gastar tiempo en mejorar los aspectos estéticos.
 
 ### Backend
 
-> Parte de la justificación en la decisión surge del artículo
-> [Difference Between Node.js and Java Performance]
-> pero fundamentalmente se debe a experiencias personales del equipo.
+> Parte de la justificación en la decisión surge de lo artículos
+> [Difference Between Node.js and Java Performance] y
+> [Why Node.js beats Java and .Net for Web, mobile, and IoT apps].
+> También se tuvo en cuenta las experiencias personales del equipo.
 
 Tanto Node/Javascript como Kotlin/JVM son arquitecturas sólidas, muy utilizadas,
 con grandes comunidades y buena performance. A nivel técnico es muy difícil
@@ -248,10 +249,42 @@ frameworks de persistencia. Tanto [Sequelized] como [Exposed] son grandes framew
 robustos y simples de utilizar. Pero [Exposed] no está tan maduro como [Sequelized]
 y eso, en un proyecto con el tiempo apremiante, puede llegar a ser un problema.
 
-En definitiva: nos inclinamos por utilizar el [API Backend Node][repo-node]
-fundamentalmente por las características del equipo de desarrollo,
-lo cual, creemos, permite agilizar la puesta en producción,
-que en este contexto es un punto crucial.
+Con respecto a cuestiones de performance, tal como se plantea en el artículo
+[Why Node.js beats Java and .Net for Web, mobile, and IoT apps],
+el hecho de que [Node] no tenga concurrencia y maneje las peticiones
+mediante _nonblocking I/O_, permite que la aplicación sea menos compleja
+dado que no existe la necesidad de manejar concurrencia y administrar
+zonas de exclusión mutua, lo que suele ser problemático y difícil de rastrear
+en caso de errores.
+
+Si bien podría plantearse el hecho de que una solución concurrente fuese
+más eficiente, eso no es tan así dado que al tratarse de soluciones web,
+el mayor cuello de botella de da en las peticiones HTTP.
+Este "delay" en las peticiones permite que una arquitectura _event-driven_
+con _nonblocking I/O_ no pierda performance, ya que el tiempo del
+_request/response_ permite a la aplicación procesar la información
+con el tiempo suficiente como para lograr atender la petición siguiente
+sin que es "tiempo de espera" sea significativo.
+
+Además también hay que tener en cuenta que esta aplicación no va a trabajar
+con cómputos complejos ni números tan grandes o tan chicos que requieran
+mayor y mejor procesamiento. Se trata de una aplicación de solicitudes
+básicas, donde es aceptable "pagar" unos pocos segundos de retraso
+en pos de la seguridad de la respuesta.
+
+Con todo esto y sumado a que las características del equipo de desarrollo
+están mejor enfocadas a [Node] es que nos inclinamos por utilizar el
+[API Backend Node][repo-node]. La "pérdida" de performance que podría
+darse entre un sistema concurrente como uno JVM-based y uno sin concurrencia como Node
+se "gana" en un código mucho más simple desde Node y menos propenso a errores.
+También el hecho de no necesitar cómputos complejos (donde sin duda
+un sistema JVM-based es mucho más eficiente) pone un escalón por encima a Node.
+
+Lo primordial en una aplicación de tiempo crítico como esta es poder
+salir a producción lo antes posible y con la menor complejidad.
+En este punto es donde Node gana, por su simplicidad de arquitectura
+(manteniendo una performance muy aceptable) y por los conocimientos
+del equipo de desarrollo.
 
 ### Frontend
 
@@ -327,4 +360,5 @@ priorizamos este hecho por el contexto y la urgencia de la aplicación.
 [vuejs-overview]: <https://www.tutorialspoint.com/vuejs/vuejs_overview.htm>
 [Vuetify]: <https://vuetifyjs.com/>
 [w3school-jsx]: <https://www.w3schools.com/react/react_jsx.asp>
+[Why Node.js beats Java and .Net for Web, mobile, and IoT apps]: <https://www.infoworld.com/article/2975233/why-node-js-beats-java-net-for-web-mobile-iot-apps.html>
 [Why you should totally switch to Kotlin]: <https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5>
