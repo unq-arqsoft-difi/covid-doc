@@ -1,4 +1,4 @@
-# Documento de Arquitecturas
+# Documento de Análisis y Comparativa de Arquitecturas
 
 Este documento comienza detallando las características de cada
 stack tecnológico elegido para desarrollar el [MVP] de la aplicación,
