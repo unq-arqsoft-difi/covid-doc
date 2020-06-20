@@ -22,6 +22,7 @@
 * [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/1)
 * [Análisis y Comparativa de Arquitecturas](Analisis-Arquitecturas.md)
 * [Requerimientos No Funcionales](Requerimientos-No-Funcionales.md)
+* [Descripción de Arquitectura](Arquitectura.md)
 
 #### Repositorios
 
