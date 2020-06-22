@@ -93,7 +93,7 @@ En nuestro caso las Arquitecturas planteadas son:
 * [Backend API Node][repo-node] + [Frontend React][repo-react]
 * [Backend API Kotlin][repo-kotlin] + [Frontend Vue][repo-vue]
 
-Para ver más en detalle el análisis de las arquitecturas se puede consultar el [Documento de Arquitecturas](Arquitecturas.md).
+Para ver más en detalle el análisis de las arquitecturas se puede consultar el [Documento de Arquitecturas](Analisis-Arquitecturas.md).
 
 ### Etapa 1.2: Carga de Solicitud
 
