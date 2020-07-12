@@ -33,7 +33,8 @@
 
 ## Idea General
 
-> "El objetivo del trabajo práctico es desarrollar un sistema que permita la carga y almacenamiento de la información de solicitudes de insumos para combatir la pandemia".
+> "El objetivo del trabajo práctico es desarrollar un sistema que permita la carga
+> y almacenamiento de la información de solicitudes de insumos para combatir la pandemia".
 
 Se establecen dos _stack tecnológicos_ para ser comparados
 en una primera etapa. En ambos casos se plantea la
@@ -71,7 +72,7 @@ Por supuesto que esto fue complementado con una comunicación continua.
 
 * `25/05` Etapa 1.1 » Elección de Arquitectura
 * `22/06` Etapa 1.2 » Funcionalidad completa del lado del usuario (sin admin)
-* `20/07` Etapa 2.0 » Funcionalidad completa y deploy automático
+* `13/07` Etapa 2.0 » Funcionalidad completa y deploy automático
 
 ### Etapa 1.1: Registro de Usuario y Login
 
@@ -93,7 +94,8 @@ En nuestro caso las Arquitecturas planteadas son:
 * [Backend API Node][repo-node] + [Frontend React][repo-react]
 * [Backend API Kotlin][repo-kotlin] + [Frontend Vue][repo-vue]
 
-Para ver más en detalle el análisis de las arquitecturas se puede consultar el [Documento de Arquitecturas](Analisis-Arquitecturas.md).
+Para ver más en detalle el análisis de las arquitecturas se puede consultar
+el [Documento de Arquitecturas](Analisis-Arquitecturas.md).
 
 ### Etapa 1.2: Carga de Solicitud
 
@@ -106,6 +108,21 @@ Para ver más en detalle el análisis de las arquitecturas se puede consultar el
 * Visualización de solicitudes por parte del usuario (se debe poder ver el estado de cada solicitud)
 * Posibilidad de cancelar aquellas que no hayan sido confirmadas
 
+### Etapa 2.0: Funcionalidad Completa y Deploy Automático
+
+> **Deadline:** 13/07
+
+**Features:**
+
+* Registro y Login
+* Carga de solicitud de insumos por parte del usuario
+* Visualización de solicitudes por parte del usuario (se debe poder ver el estado de cada solicitud)
+* Posibilidad de cancelar aquellas que no hayan sido confirmadas
+* [Admin] Ver todas las solicitudes realizadas
+* [Admin] Posibilidad de aprobar o rechazar solicitudes
+* Continuous Integration
+* Continuous Deployment
+
 #### Interfaz API
 
 Para lograr que las duplas de Arquitecturas sean intercambiables
@@ -115,11 +132,25 @@ completa, dejando la posibilidad de elegir el _backend_ de un "equipo"
 y el _frontend_ del otro, ya que los _frontend_ se comunican con el _backend_
 mediante la API que estos exponen.
 
-| Method | Path     | JWT | Response | Descripción                                |
-|--------|----------|-----|----------|--------------------------------------------|
-| `GET`  | `/users` | :heavy_check_mark:  | `200`    | [Listar usuarios][api-listar-usuarios]     |
-| `POST` | `/users` | :x:  | `201`    | [Registrar usuario][api-registrar-usuario] |
-| `POST` | `/login` | :x:  | `200`    | [Login de usuario][api-login-de-usuario]   |
+| Method   | Path                                    | JWT | Admin | Descripción                            |
+|----------|-----------------------------------------|-----|-------|----------------------------------------|
+| `POST`   | `'/login'`                              | ✅  | ❌    | Login de Usuario                       |
+| `POST`   | `'/users'`                              | ✅  | ❌    | Registrar Nuevo Usuario                |
+| `POST`   | `'/request-supplies'`                   | ✅  | ❌    | Registrar Nueva Solicitud              |
+| `GET`    | `'/request-supplies'`                   | ✅  | ❌    | Ver Solicitudes (según usuario de JWT) |
+| `GET`    | `'/request-supplies/:id'`               | ✅  | ❌    | Ver Solicitud                          |
+| `DELETE` | `'/request-supplies/:id'`               | ✅  | ❌    | Cancelar Solicitud                     |
+| `GET`    | `'/support/areas'`                      | ❌  | ❌    | Listado de Áreas                       |
+| `GET`    | `'/support/institutions'`               | ❌  | ❌    | Listado de Hospitales                  |
+| `GET`    | `'/support/provinces'`                  | ❌  | ❌    | Listado de Provincias                  |
+| `GET`    | `'/support/provinces/:id'`              | ❌  | ❌    | Provincia                              |
+| `GET`    | `'/support/provinces/:id/towns'`        | ❌  | ❌    | Provincia con Listado de Localidades   |
+| `GET`    | `'/support/supplies'`                   | ❌  | ❌    | Listado de Suministros                 |
+| `GET`    | `'/support/providers'`                  | ❌  | ❌    | Listado de Proveedores                 |
+| `GET`    | `'/admin/request-supplies'`             | ✅  | ✅    | Listado de todas las Solicitudes       |
+| `GET`    | `'/admin/request-supplies/:id'`         | ✅  | ✅    | Obtener Solicitud                      |
+| `PUT`    | `'/admin/request-supplies/:id/approve'` | ✅  | ✅    | Aprobar Solicitud                      |
+| `PUT`    | `'/admin/request-supplies/:id/reject'`  | ✅  | ✅    | Rechazar Solicitud                     |
 
 Para información detalla consultar la [Documentación de API REST](API-REST.md).
 
@@ -127,6 +158,3 @@ Para información detalla consultar la [Documentación de API REST](API-REST.md)
 [repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
 [repo-react]:  <https://github.com/unq-arqsoft-difi/covid-front-react>
 [repo-vue]:    <https://github.com/unq-arqsoft-difi/covid-front-vue>
-[api-listar-usuarios]:   API-REST.md#listar-usuarios
-[api-registrar-usuario]: API-REST.md#registrar-usuario
-[api-login-de-usuario]:  API-REST.md#login-de-usuario
