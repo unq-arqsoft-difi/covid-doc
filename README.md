@@ -132,25 +132,25 @@ completa, dejando la posibilidad de elegir el _backend_ de un "equipo"
 y el _frontend_ del otro, ya que los _frontend_ se comunican con el _backend_
 mediante la API que estos exponen.
 
-| Method   | Path                                    | JWT | Admin | Descripción                            |
-|----------|-----------------------------------------|-----|-------|----------------------------------------|
-| `POST`   | `'/login'`                              | ✅  | ❌    | Login de Usuario                       |
-| `POST`   | `'/users'`                              | ✅  | ❌    | Registrar Nuevo Usuario                |
-| `POST`   | `'/request-supplies'`                   | ✅  | ❌    | Registrar Nueva Solicitud              |
-| `GET`    | `'/request-supplies'`                   | ✅  | ❌    | Ver Solicitudes (según usuario de JWT) |
-| `GET`    | `'/request-supplies/:id'`               | ✅  | ❌    | Ver Solicitud                          |
-| `DELETE` | `'/request-supplies/:id'`               | ✅  | ❌    | Cancelar Solicitud                     |
-| `GET`    | `'/support/areas'`                      | ❌  | ❌    | Listado de Áreas                       |
-| `GET`    | `'/support/institutions'`               | ❌  | ❌    | Listado de Hospitales                  |
-| `GET`    | `'/support/provinces'`                  | ❌  | ❌    | Listado de Provincias                  |
-| `GET`    | `'/support/provinces/:id'`              | ❌  | ❌    | Provincia                              |
-| `GET`    | `'/support/provinces/:id/towns'`        | ❌  | ❌    | Provincia con Listado de Localidades   |
-| `GET`    | `'/support/supplies'`                   | ❌  | ❌    | Listado de Suministros                 |
-| `GET`    | `'/support/providers'`                  | ❌  | ❌    | Listado de Proveedores                 |
-| `GET`    | `'/admin/request-supplies'`             | ✅  | ✅    | Listado de todas las Solicitudes       |
-| `GET`    | `'/admin/request-supplies/:id'`         | ✅  | ✅    | Obtener Solicitud                      |
-| `PUT`    | `'/admin/request-supplies/:id/approve'` | ✅  | ✅    | Aprobar Solicitud                      |
-| `PUT`    | `'/admin/request-supplies/:id/reject'`  | ✅  | ✅    | Rechazar Solicitud                     |
+| Method   | Path                                    | JWT | Admin | Descripción                         |
+|----------|-----------------------------------------|-----|-------|-------------------------------------|
+| `POST`   | `/login`                              | ✔️  | ❌    | Login de Usuario                     |
+| `POST`   | `/users`                              | ✔️  | ❌    | Registrar Nuevo Usuario              |
+| `POST`   | `/request-supplies`                   | ✔️  | ❌    | Registrar Nueva Solicitud            |
+| `GET`    | `/request-supplies`                   | ✔️  | ❌    | Ver Solicitudes                      |
+| `GET`    | `/request-supplies/:id`               | ✔️  | ❌    | Ver Solicitud                        |
+| `DELETE` | `/request-supplies/:id`               | ✔️  | ❌    | Cancelar Solicitud                   |
+| `GET`    | `/support/areas`                      | ❌  | ❌   | Listado de Áreas                     |
+| `GET`    | `/support/institutions`               | ❌  | ❌   | Listado de Hospitales                |
+| `GET`    | `/support/provinces`                  | ❌  | ❌   | Listado de Provincias                |
+| `GET`    | `/support/provinces/:id`              | ❌  | ❌   | Provincia                            |
+| `GET`    | `/support/provinces/:id/towns`        | ❌  | ❌   | Provincia con Listado de Localidades |
+| `GET`    | `/support/supplies`                   | ❌  | ❌   | Listado de Suministros               |
+| `GET`    | `/support/providers`                  | ❌  | ❌   | Listado de Proveedores               |
+| `GET`    | `/admin/request-supplies`             | ✔️  | ✔️    | Listado de todas las Solicitudes     |
+| `GET`    | `/admin/request-supplies/:id`         | ✔️  | ✔️    | Obtener Solicitud                    |
+| `PUT`    | `/admin/request-supplies/:id/approve` | ✔️  | ✔️    | Aprobar Solicitud                    |
+| `PUT`    | `/admin/request-supplies/:id/reject`  | ✔️  | ✔️    | Rechazar Solicitud                   |
 
 Para información detalla consultar la [Documentación de API REST](API-REST.md).
 
