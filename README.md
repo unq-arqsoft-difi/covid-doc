@@ -16,6 +16,13 @@
 * Leandro Di Lorenzo » [@leandrojdl](https://github.com/leandrojdl)
 * Julián Fischetti » [@fischettij](https://github.com/fischettij)
 
+#### URLs
+
+* Web Page » <https://difi-covid.tk>
+* API » <https://api.difi-covid.tk>
+* DA Admin » <https://adminer.difi-covid.tk>
+* Access Log Monitor » <https://logs.difi-covid.tk>
+
 #### Información
 
 * [Enunciado](https://docs.google.com/document/d/1AyV7urbQM0ywcCVH7bCqCrsFQ7miNpRu_-kGEK_vt7A/edit#)
