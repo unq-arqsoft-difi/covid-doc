@@ -14,3 +14,7 @@ En conclusión, CORS no puede ser "apagado" dado que es algo que maneja el naveg
 Supongamos que nuestro back soporta 100 request por segundo y tenemos una ocurrencia promedio de 20 request por segundo. En este escenario estamos ok.
 
 Ahora, suponiendo que existe una pagina a la que acceden miles de personas por minuto y exploan una vulnerabilidad de dicho sitio, podrían agregar codigo malicioso en esta pagina para que cada vez que cargue, se envie un request a nuestro back. En este caso pasariamos a superer la cantidad de request soportados, afectando la performance de la aplicación.
+
+**Fuente:** [Mozilla][cors-mozilla]
+
+[cors-mozilla]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
