@@ -143,7 +143,7 @@ y manejo de acceso a recursos. Particularmente utiliza la _library_ [node-jsonwe
 
 Al momento del _login_ se genera un token para ese usuario. Ese token
 permite, además de validar la sesión, acceder a los recursos que se exponen
-desde el _backend_. Como se puede observar en los [endpoints](README#interfaz-api)
+desde el _backend_. Como se puede observar en los [endpoints](README.md#interfaz-api)
 publicados por la API, los endpoints requiere validación de token para
 retornar las respuestas. Quedan exceptuados los endpoints de _support_,
 _registro_ y _login_. Support porque es información de consulta para
