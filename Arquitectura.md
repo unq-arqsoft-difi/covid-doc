@@ -134,10 +134,86 @@ ser usada en la ejecución.
   - Generador Builds de Docker
   - Lanzador remoto de Deploy
 
+## Notas sobre el Esquema de Autenticación y Seguridad
+
+### JWT
+
+La aplicación utiliza Json Web Token ([JWT]) como sistema de autenticación
+y manejo de acceso a recursos. Particularmente utiliza la _library_ [node-jsonwebtoken].
+
+Al momento del _login_ se genera un token para ese usuario. Ese token
+permite, además de validar la sesión, acceder a los recursos que se exponen
+desde el _backend_. Como se puede observar en los [endpoints](README#interfaz-api)
+publicados por la API, los endpoints requiere validación de token para
+retornar las respuestas. Quedan exceptuados los endpoints de _support_,
+_registro_ y _login_. Support porque es información de consulta para
+utilizar como soporte en los formularios. Login y Register por cuestiones obvias.
+
+Además del token de usuario, existe otro tipo de token exclusivo para usuarios
+administradores. Estos token permiten administrar las solicitudes.
+
+No es posible, a nivel de usuario de front o consultas directas a la API
+hacerse de un token de admin dado que la interfaz de API no expone en ningún
+momento algún campo que permita hacerse pasar por admin. Los usuarios
+administradores son creados directamente por nosotros directamente por base.
+
+Por supuesto que ninguna aplicación está exenta de hacking, pero para nuestra
+aplicación, y en esta instancia, creemos que las posibilidades de hacking están más
+ligadas a la ingeniería social que a vulnerabilidades de la aplicación.
+
+### CORS
+
+> Fuente: [Cross-Origin Resource Sharing (CORS)][cors-mozilla]
+
+Cors es un protocolo o estrategia requerida por los navegadores web
+para evitar un tipo de ataque de denegación de servicios.
+Es un mecanismo que utiliza cabeceras HTTP adicionales para permitir
+que un _user agent_ (el navegador) obtenga permiso para acceder a recursos
+desde un servidor pero en un origen (dominio) distinto al que pertenece.
+
+Entonces, en cada pedido AJAX que se necesita ejecutar, el navegador
+previamente envía a esa misma URL un request `OPTIONS` y en el campo
+`Origin` pone el valor del dominio de la Web (ej, google.com).
+Como este valor difiere del valor desde donde efectivamente se hace
+el pedido (ej, mi casa: 200.156.067.042).
+
+Sin habilitación de CORS estas peticiones son tomadas como maliciosas y se bloquean.
+Con CORS habilitado en el servidor se valida la existencia de estos
+requests de dominios cruzados (_cross domain_) y según la estrategia configurada
+le indica al navegador si puede continuar con las peticiones.
+
+La especificación de CORS sugiere que los exploradores "verifiquen" la solicitud
+solicitando métodos soportados desde el servidor con un método de solicitud
+`HTTP OPTIONS` y luego, con la "aprobación" del servidor, enviar la verdadera
+solicitud con el método de solicitud HTTP verdadero.
+
+#### Situación en nuestra aplicación
+
+Actualmente en la etapa inicial, con los primeros deployment,
+optamos por tener una configuración CORS sin restricciones. O sea,
+cualquier web, desde cualquier dominio podría, en principio, hacer
+requests hacia la API. Esto no representa mayores problemas
+dado que la aplicación no expone ni permite manipulación de
+información sensible con los _token_ de usuario. La información
+sensible (administración de peticiones) solo es posible manipularla
+con token de administrador.
+
+La idea es configurar CORS para que solo sea posible invocar request desde nuestro
+dominio de la aplicación. La configuración no tiene complicaciones, solo es necesario
+indicar él o los dominios desde donde queremos que se ejecuten los pedidos.
+
+En conclusión, CORS no puede ser "apagado" dado que es algo que maneja el navegador
+para todos los casos de aplicaciones _client rendering_, como es nuestro caso.
+Si desde el back dejamos de validar CORS, ningún pedido puede ser ejecutado.
+
+En los casos de aplicaciones _server rendering_, aún utilizando una API,
+sí es posible deshabilitar CORS dados que los pedidos se harían internamente.
+
 [adminer-hub]: https://hub.docker.com/_/adminer/
 [Análisis y Comparativa de Arquitecturas]: Analisis-Arquitecturas.md
 [api-backend]: https://github.com/unq-arqsoft-difi/covid-back-node
 [code-coverage]: https://en.wikipedia.org/wiki/Code_coverage
+[cors-mozilla]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 [Digital Ocean]: https://www.digitalocean.com
 [docker-compose]: https://docs.docker.com/compose/
 [docker-container]: https://www.docker.com/resources/what-container
@@ -151,8 +227,10 @@ ser usada en la ejecución.
 [GitHub]: https://github.com/
 [Integración Continua]: https://en.wikipedia.org/wiki/Continuous_integration
 [integration-testing]: https://en.wikipedia.org/wiki/Integration_testing
+[JWT]: https://jwt.io
 [Lint]: https://en.wikipedia.org/wiki/Lint_%28software%29
 [Nginx]:https://www.nginx.com/
+[node-jsonwebtoken]: https://github.com/auth0/node-jsonwebtoken
 [Node]: https://nodejs.org/en/
 [postgres-hub]: https://hub.docker.com/_/postgres/
 [React]: https://reactjs.org/
