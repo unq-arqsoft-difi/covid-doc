@@ -174,7 +174,7 @@ desde un servidor pero en un origen (dominio) distinto al que pertenece.
 Entonces, en cada pedido AJAX que se necesita ejecutar, el navegador
 previamente envía a esa misma URL un request `OPTIONS` y en el campo
 `Origin` pone el valor del dominio de la Web (ej, google.com).
-Como este valor difiere del valor desde donde efectivamente se hace
+Este valor difiere del valor desde donde efectivamente se hace
 el pedido (ej, mi casa: 200.156.067.042).
 
 Sin habilitación de CORS estas peticiones son tomadas como maliciosas y se bloquean.
