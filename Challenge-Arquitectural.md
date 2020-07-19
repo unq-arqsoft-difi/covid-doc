@@ -109,7 +109,9 @@ se generó el archivo `2020-05-22.json` con la información correspondiente.
 Si el proceso falla no se genera el archivo y se envía una alarma
 a los responsables de la información.
 
-## Notas sobre el Esquema de Autenticación
+## Notas sobre el Esquema de Autenticación y Seguridad
+
+### JWT
 
 La aplicación utiliza Json Web Token ([JWT]) como sistema de autenticación
 y manejo de acceso a recursos. Particularmente utiliza la _library_ [node-jsonwebtoken].
