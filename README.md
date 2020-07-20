@@ -30,6 +30,7 @@
 * [Análisis y Comparativa de Arquitecturas](Analisis-Arquitecturas.md)
 * [Requerimientos No Funcionales](Requerimientos-No-Funcionales.md)
 * [Descripción de Arquitectura](Arquitectura.md)
+* [Reflexión Final](Reflexion-Final.md)
 
 #### Repositorios
 
