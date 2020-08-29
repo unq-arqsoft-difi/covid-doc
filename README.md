@@ -23,7 +23,17 @@
 * DA Admin » <https://adminer.difi-covid.tk>
 * Access Log Monitor » <https://logs.difi-covid.tk>
 
-#### Información
+#### Info » Arq. Soft. II
+
+* [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/2)
+* Repositorios
+  - [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
+  - [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
+
+#### Info » Arq. Soft. I
+
+> Los repositorios vigentes fueron marcados con el tag `arq1-final-release`
+> para indicar la versión correspondiente a trabajo realizado en _Arq. Soft. I_.
 
 * [Enunciado](https://docs.google.com/document/d/1AyV7urbQM0ywcCVH7bCqCrsFQ7miNpRu_-kGEK_vt7A/edit#)
 * [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/1)
@@ -31,13 +41,11 @@
 * [Requerimientos No Funcionales](Requerimientos-No-Funcionales.md)
 * [Descripción de Arquitectura](Arquitectura.md)
 * [Reflexión Final](Reflexion-Final.md)
-
-#### Repositorios
-
-* [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
-* [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
-* [Backend Kotlin](https://github.com/unq-arqsoft-difi/covid-back-kotlin) _DEPRECADO_
-* [Frontend Vue](https://github.com/unq-arqsoft-difi/covid-front-vue) _DEPRECADO_
+* Repositorios
+  - [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node/tree/arq1-final-release)
+  - [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react/tree/arq1-final-release)
+  - [Backend Kotlin](https://github.com/unq-arqsoft-difi/covid-back-kotlin) _ARCHIVADO_
+  - [Frontend Vue](https://github.com/unq-arqsoft-difi/covid-front-vue) _ARCHIVADO_
 
 ## Idea General
 
