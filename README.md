@@ -26,6 +26,7 @@
 #### Info » Arq. Soft. II
 
 * [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/2)
+* [API Changelog](API-Changelog.md)
 * Repositorios
   - [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
   - [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
