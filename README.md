@@ -30,7 +30,7 @@
 * Repositorios
   - [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
   - [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
-  - [API Test Cases](https://github.com/unq-arqsoft-difi/covid-api-test-cases)
+  - [API Use Cases](https://github.com/unq-arqsoft-difi/covid-api-use-cases)
 
 #### Info » Arq. Soft. I
 
