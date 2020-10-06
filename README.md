@@ -142,37 +142,6 @@ el [Documento de Arquitecturas](Analisis-Arquitecturas.md).
 * Continuous Integration
 * Continuous Deployment
 
-#### Interfaz API
-
-Para lograr que las duplas de Arquitecturas sean intercambiables
-planteamos una interfaz de API REST común en ambos _backend_.
-De esta forma no quedamos atados a tener que elegir una Arquitectura
-completa, dejando la posibilidad de elegir el _backend_ de un "equipo"
-y el _frontend_ del otro, ya que los _frontend_ se comunican con el _backend_
-mediante la API que estos exponen.
-
-| Method   | Path                                    | JWT | Admin | Descripción                         |
-|----------|-----------------------------------------|-----|-------|-------------------------------------|
-| `POST`   | `/login`                              | ✔️  | ❌    | Login de Usuario                     |
-| `POST`   | `/users`                              | ✔️  | ❌    | Registrar Nuevo Usuario              |
-| `POST`   | `/request-supplies`                   | ✔️  | ❌    | Registrar Nueva Solicitud            |
-| `GET`    | `/request-supplies`                   | ✔️  | ❌    | Ver Solicitudes                      |
-| `GET`    | `/request-supplies/:id`               | ✔️  | ❌    | Ver Solicitud                        |
-| `DELETE` | `/request-supplies/:id`               | ✔️  | ❌    | Cancelar Solicitud                   |
-| `GET`    | `/support/areas`                      | ❌  | ❌   | Listado de Áreas                     |
-| `GET`    | `/support/institutions`               | ❌  | ❌   | Listado de Hospitales                |
-| `GET`    | `/support/provinces`                  | ❌  | ❌   | Listado de Provincias                |
-| `GET`    | `/support/provinces/:id`              | ❌  | ❌   | Provincia                            |
-| `GET`    | `/support/provinces/:id/towns`        | ❌  | ❌   | Provincia con Listado de Localidades |
-| `GET`    | `/support/supplies`                   | ❌  | ❌   | Listado de Suministros               |
-| `GET`    | `/support/providers`                  | ❌  | ❌   | Listado de Proveedores               |
-| `GET`    | `/admin/request-supplies`             | ✔️  | ✔️    | Listado de todas las Solicitudes     |
-| `GET`    | `/admin/request-supplies/:id`         | ✔️  | ✔️    | Obtener Solicitud                    |
-| `PUT`    | `/admin/request-supplies/:id/approve` | ✔️  | ✔️    | Aprobar Solicitud                    |
-| `PUT`    | `/admin/request-supplies/:id/reject`  | ✔️  | ✔️    | Rechazar Solicitud                   |
-
-Para información detalla consultar la [Documentación de API REST](API-REST.md).
-
 [repo-node]:   <https://github.com/unq-arqsoft-difi/covid-back-node>
 [repo-kotlin]: <https://github.com/unq-arqsoft-difi/covid-back-kotlin>
 [repo-react]:  <https://github.com/unq-arqsoft-difi/covid-front-react>
