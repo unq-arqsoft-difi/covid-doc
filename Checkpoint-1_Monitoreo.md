@@ -24,7 +24,7 @@ armamos sumamos al docker-compose que utilizamos para correr los casos, las conf
 de Promehteus con Grafana. Esto nos permitió no solo levantar un ambiente donde correr
 los casos de forma independiente sino también monitorizarlo.
 
-Prviamente agregamos a la aplicación de API una _library_ encargada de recolectar la información
+Previamente agregamos a la aplicación de API una _library_ encargada de recolectar la información
 para prometheus: [api-express-exporter](https://github.com/teamzerolabs/api-express-exporter).
 
 Esta _library_ agrega el middleware:
