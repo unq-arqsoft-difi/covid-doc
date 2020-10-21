@@ -28,6 +28,7 @@
 * [Tablero Kanban](https://github.com/orgs/unq-arqsoft-difi/projects/2)
 * Actividades y Entregas:
   1. [Actividad sobre API Backend](API-Changelog.md)
+  2. [Checkpoint #1: Integrar sistema de Monitoreo](Checkpoint-1_Monitoreo.md)
 * Repositorios
   - [Backend Node](https://github.com/unq-arqsoft-difi/covid-back-node)
   - [Frontend React](https://github.com/unq-arqsoft-difi/covid-front-react)
