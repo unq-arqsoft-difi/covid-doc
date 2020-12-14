@@ -94,7 +94,29 @@ con las siguientes características:
 * Memoria: 16gb
 * Disco: 500gb SSD
 
-### Gráfica de resultados
+### Resultados
+
+```txt
+All virtual users finished
+Summary report
+  Scenarios launched:  17280
+  Scenarios completed: 17280
+  Requests completed:  86400
+  Mean response/sec: 59.76
+  Response time (msec):
+    min: 1.1
+    max: 126.8
+    median: 9.3
+    p95: 47.9
+    p99: 63.1
+  Scenario counts:
+    Register user: 17280 (100%)
+  Codes:
+    200: 51819
+    201: 34518
+    400: 42
+    401: 21
+```
 
 #### Mediciones de Respuestas
 
@@ -103,3 +125,58 @@ con las siguientes características:
 #### Mediciones de Uso de CPU y Memoria
 
 ![Reporte de CPU y Memoria - Corrida 1](img/Reporte-CPU-Memory-corrida1.png)
+
+## Resultados 2: Limitando los containers
+
+Se limitaron los containers de la API y de la BD a
+
+* 1 Core de CPU (cada uno)
+* 2gb de Memoria (cada uno)
+
+### Resultados
+
+```txt
+All virtual users finished
+Summary report
+  Scenarios launched:  17336
+  Scenarios completed: 17336
+  Requests completed:  86680
+  Mean response/sec: 56.44
+  Response time (msec):
+    min: 1.2
+    max: 35114.8
+    median: 11.2
+    p95: 11310.6
+    p99: 28423.4
+  Scenario counts:
+    Register user: 17336 (100%)
+  Codes:
+    200: 51988
+    201: 34632
+    400: 40
+    401: 20
+```
+
+#### Mediciones de Respuestas
+
+![Reporte de Responses - Corrida 2](img/Reporte-Responses-corrida2.png)
+
+#### Mediciones de Uso de CPU y Memoria
+
+No sabemos por qué, pero al limitar los recursos, el exportador del sistema
+(node-exporter) dejó de exportar resultados de CPU, Memoria, etc.
+
+## Conclusiones
+
+Se puede visualizar que al limitar los recursos, a medida que crece
+la cantidad de pedidos en simultáneo, se pierde capacidad de respuesta,
+pasando de una mediana de respuesta de `9.3ms` con un máximo de `47.9ms`
+a una mediana de respuesta de `11.2ms` pero con un máximo de `35114.8ms`.
+
+Si bien la aplicación tarda en responder, notamos que el tiempo de servicio
+(envío del request sobre la llegada de la respuesta) es mucho mayor, pero
+no logramos generar gráficas que tengan esa medición porque no conseguimos
+exportadores de métricas para prometheus compatibles con artillery, que es
+desde donde deberíamos medirlo. En consecuencia las métricas se obtienen
+desde el servidor pero no desde el cliente, para conocer la efectividad
+del servicio que percibe el cliente.
