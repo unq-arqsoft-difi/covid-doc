@@ -163,8 +163,73 @@ Summary report
 
 #### Mediciones de Uso de CPU y Memoria
 
-No sabemos por qué, pero al limitar los recursos, el exportador del sistema
-(node-exporter) dejó de exportar resultados de CPU, Memoria, etc.
+![Reporte de CPU y Memoria - Corrida 2](img/Reporte-CPU-Memory-corrida2.png)
+
+## Resultados 3: Bajando los niveles de carga
+
+Para este experimento bajamos los niveles de carga dado que la
+corrida anterior era muy intensiva. A su vez mantuvimos las limitaciones
+de CPU y memoria descriptas en el experimento anterior.
+
+```yaml
+phases:
+  - duration: 60
+    arrivalRate: 2
+  - duration: 120
+    arrivalRate: 2
+    rampTo: 5
+  - duration: 420
+    arrivalRate: 2
+  - duration: 420
+    arrivalRate: 3
+  - duration: 420
+    arrivalRate: 1
+scenarios:
+  - think: 5 # delay
+  - post:
+      url: "/users"
+  - think: 2
+  - post:
+      url: "/session"
+  - think: 3
+  - post:
+      url: "/request-supplies"
+  - post:
+      url: "/session"
+  - get:
+      url: "/request-supplies?status=Pending"
+```
+
+### Resultados
+
+```txt
+Summary report
+  Scenarios launched:  3070
+  Scenarios completed: 3070
+  Requests completed:  15350
+  Mean response/sec: 10.62
+  Response time (msec):
+    min: 1.9
+    max: 115
+    median: 8.5
+    p95: 31.3
+    p99: 45.6
+  Scenario counts:
+    Register user: 3070 (100%)
+  Codes:
+    200: 9207
+    201: 6134
+    400: 6
+    401: 3
+```
+
+#### Mediciones de Respuestas
+
+![Reporte de Responses - Corrida 3](img/Reporte-Responses-corrida3.png)
+
+#### Mediciones de Uso de CPU y Memoria
+
+![Reporte de CPU y Memoria - Corrida 3](img/Reporte-CPU-Memory-corrida3.png)
 
 ## Conclusiones
 
@@ -180,3 +245,21 @@ exportadores de métricas para prometheus compatibles con artillery, que es
 desde donde deberíamos medirlo. En consecuencia las métricas se obtienen
 desde el servidor pero no desde el cliente, para conocer la efectividad
 del servicio que percibe el cliente.
+
+Por otro lado, sabemos que hay ciertas definiciones a nivel aplicación
+que podrían ser mejoradas pero no las hicimos adrede para analizar el comportamiento.
+Principalmente, todos los requests a los endpoint de tipo `/support`
+podrían _cachearse_ para evitar ir a la base de datos a buscarlos cada vez,
+dado que son datos que no van a cambiar con frecuencia. Eso mejoraría
+la performance de las respuestas y el consumo de recursos.
+
+También notamos que cometimos un error en la aplicación cuando definimos
+la paginación de los pedidos de insumos. Nos dimos cuenta sobre el final
+que estamos haciendo paginación a nivel aplicación pero no a nivel base de datos.
+Si bien estamos reduciendo el tráfico HTTP a enviar solo una parte de resultados,
+la base de datos hace el pedido completo, y a medida que crecen los pedidos,
+crece la demanda a la base y reduce la performance d ela aplicación
+esperando los resultados de la base, llegando a tener consultas de miles
+de pedidos que no solo consumen tiempo de respuesta de la base a la aplicación
+sino también consumo de memoria de la aplicación al tener que guardarlos
+todos en memoria para devolver luego solo una parte.
